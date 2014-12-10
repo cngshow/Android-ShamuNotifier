@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/shamu_widget_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/widget_border"
+    android:layout_gravity="center_vertical|center_horizontal"
+    android:orientation="vertical" >
+    <TextView
+        android:id="@+id/text_view_widget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:gravity="start"
+        android:text="@string/text_view_widget_string"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textStyle="bold"
+        android:textColor="#191919"
+        android:padding="10dp" />
+
+    <LinearLayout
+        android:gravity="top|center_horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:id="@+id/alert_widget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/unknown" />
+
+        <ImageView
+            android:id="@+id/polling_widget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/polling_unknown" />
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="top|center_horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp">
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="top"
+        >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/widget_phone"
+                android:src="@drawable/phone_vibrate"
+                android:layout_gravity="center_vertical" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/widget_bell"
+                android:src="@drawable/bell_ring"
+                android:layout_gravity="center_vertical" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/widget_speak"
+                android:src="@drawable/speak"
+                android:layout_gravity="center_vertical" />
+    </LinearLayout>
+
+
+</LinearLayout>

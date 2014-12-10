@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VHAMU Notifier</string>
+    <string name="alert_details">Alert Details</string>
+    <string name="job_description_label">Job Description</string>
+    <string name="last_completed_label">Last Completed:</string>
+    <string name="elapsed_time_label">Elapsed Time:</string>
+    <string name="menu_preferences_item">Preferences</string>
+    <string name="service_active_string">Stop Service</string>
+    <string name="service_inactive_string">Start Service</string>
+    <string name="service_graceful_death">Normal</string> 
+    <string name="green_elapsed_time">Green for: </string> 
+    <string name="red_elapsed_time">Red for: </string> 
+    <string name="notification_reds_plural">active alerts!</string> 
+    <string name="notification_reds_singular">1 active alert!</string> 
+    <string name="notification_cleared_plural">alerts have cleared!</string> 
+    <string name="notification_cleared_singular">1 alert has cleared!</string> 
+    <string name="notification_all_clear">All alerts are clear!</string> 
+    <string name="gray_elapsed_time">Unknown state </string> 
+    <string name="null_short_description">Short description not set in VHAMU</string> 
+    <string name="shamu_widget_name">VHAMU Notifier</string> 
+    <string name="text_view_widget_string">VHAMU</string> 
+    <string name="preferences_title">Preferences</string> 
+    <string name="preferences_url">VHAMU\'s URL?</string> 
+    <string name="preferences_url_default"></string> 
+    <string name="preferences_polling_interval">Polling interval:</string> 
+    <string name="preferences_test_button">Fetch alerts!</string> 
+    <string name="preferences_interesting_alert_note">Select all alerts of interest:</string> 
+    <string name="preferences_url_preamble">http://</string> 
+    <string name="preferences_default_polling_interval">10</string> 
+    <string name="preferences_invalid_url_dialogue_please_fix">"Your URL is invalid.  Please fix it!"</string> 
+    <string name="preferences_invalid_url_dialogue_title">Malformed URL!</string> 
+    <string name="preferences_no_active_network_dialogue">"Your device has no network connectivity at the moment!"</string> 
+    <string name="preferences_no_active_network_title">"No connectivity"</string> 
+    <string name="preferences_shamu_unreachable_message">"VHAMU was not reachable with your URL!  Is VHAMU up?"</string> 
+    <string name="preferences_shamu_unreachable_title">VHAMU unreachable!</string> 
+    <string name="preferences_invalid_url_dialogue_ok">OK</string> 
+    <string name="preferences_testing_button_in_test">Fetching...</string> 
+    <string name="preferences_success_test_message">Select the alerts of interest and select the back button when finished!</string> 
+    <string name="preferences_success_test_title">Success!!</string> 
+    <string name="welcome_title">Welcome!</string> 
+    <string name="welcome_message">Welcome to the Android System Health Alert Monitoring (VHAMU) notification app!\nThis app will help you keep up with current health of the VA\'s VLER system.\nTo get started enter the URL for the VHAMU system and your desired polling interval in minutes.</string>
+    <string name="main_activity_failed_refresh_message">Refresh failed!  Is VHAMU up?</string>
+    <string name="main_activity_failed_refresh_title">Refresh Failed!</string>
+    <string name="preferences_deselect_all_button_text">None</string>
+    <string name="preferences_select_all_button_text">All</string>
+</resources>

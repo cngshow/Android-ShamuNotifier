@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="gov.va.shamu.android"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+<!--android.Manifest.permission#READ_SYNC_SETTINGS -->
+
+    <application
+        android:name=".ShamuNotifierApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher_shamu"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <provider
+            android:name=".provider.ShamuNotifierContentProvider"
+            android:authorities="gov.va.shamu.android.ShamuNotifier" />
+
+        <service android:name=".ShamuUpdaterService" />
+
+        <activity
+            android:name="gov.va.shamu.android.ShamuMainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="gov.va.shamu.android.ShamuJobDisplayActivity"
+            android:label="@string/alert_details" >
+        </activity>
+                
+        <receiver android:name=".BootReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".SyncReceiver" >
+            <intent-filter>
+                <action android:name="com.android.sync.SYNC_CONN_STATUS_CHANGED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".NetworkReceiver" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".ShamuWidget"
+            android:label="@string/shamu_widget_name" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.ACTION_WIDGET_RECEIVER"/>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/shamu_widget_info" />
+        </receiver>
+    </application>
+
+</manifest>

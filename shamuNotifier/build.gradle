@@ -1,0 +1,29 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.1"
+
+    defaultConfig {
+        applicationId "gov.va.shamu.android"
+        minSdkVersion 17
+        targetSdkVersion 19
+    }
+
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+    dexOptions {
+        preDexLibraries = false
+    }
+}
+
+dependencies {
+    compile project(':libraryPullToRefreshListView')
+    compile files('libs/android-support-v13.jar')
+  //  compile 'com.android.support:support-v4:20.0.0'
+  //  compile 'com.android.support:support-v4:20.0.0'
+}

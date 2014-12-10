@@ -1,0 +1,11 @@
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="106dp"
+    android:minHeight="62dp"
+    android:maxWidth="106dp"
+    android:maxHeight="62dp"
+
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen|keyguard"
+    android:initialLayout="@layout/shamu_widget"
+    >
+</appwidget-provider>
