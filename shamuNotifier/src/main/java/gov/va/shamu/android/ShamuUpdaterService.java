@@ -29,6 +29,7 @@ public class ShamuUpdaterService extends Service {
 	private static volatile int pollingInterval = 600000;
 	private static final String RESTFUL_PATH_TO_JSON_ALERTS = "/mobile_trackable_list_json";
 	private static final String RESTFUL_PATH_TO_JSON_REPORTS = "/mobile_nontrackable_list_json";
+
 	// to do pull from prefs
 	//private static String urlString = "http://192.168.0.2:3000/mobile_trackable_list_json";
 	
@@ -201,6 +202,10 @@ public class ShamuUpdaterService extends Service {
             }
 	    }
     }
+
+	public static String fetchJSONData(Context context, String webServicePath) throws IOException {
+		return refresh(context,webServicePath);
+	}
 
 	//Called from service and on pull down of listview
 	private static synchronized String refresh(Context context, String webServicePath) throws IOException {

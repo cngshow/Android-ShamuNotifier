@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">SHAMU Notifier</string>
+    <string name="app_name">VAMU Notifier</string>
     <string name="alert_details">Alert Details</string>
     <string name="report_details">Report Details</string>
     <string name="job_description_label">Job Description</string>
@@ -10,20 +10,20 @@
     <string name="menu_preferences_item">Preferences</string>
     <string name="service_active_string">Stop Service</string>
     <string name="service_inactive_string">Start Service</string>
-    <string name="service_graceful_death">Normal</string>
-    <string name="green_elapsed_time">Green for: </string>
-    <string name="red_elapsed_time">Red for: </string>
-    <string name="notification_reds_plural">active alerts!</string>
-    <string name="notification_reds_singular">1 active alert!</string>
-    <string name="notification_cleared_plural">alerts have cleared!</string>
-    <string name="notification_cleared_singular">1 alert has cleared!</string>
-    <string name="notification_all_clear">All alerts are clear!</string>
-    <string name="gray_elapsed_time">Unknown state </string>
-    <string name="null_short_description">Short description not set in SHAMU</string>
-    <string name="shamu_widget_name">SHAMU Notifier</string>
-    <string name="text_view_widget_string">SHAMU</string>
+    <string name="service_graceful_death">Normal</string> 
+    <string name="green_elapsed_time">Green for: </string> 
+    <string name="red_elapsed_time">Red for: </string> 
+    <string name="notification_reds_plural">active alerts!</string> 
+    <string name="notification_reds_singular">1 active alert!</string> 
+    <string name="notification_cleared_plural">alerts have cleared!</string> 
+    <string name="notification_cleared_singular">1 alert has cleared!</string> 
+    <string name="notification_all_clear">All alerts are clear!</string> 
+    <string name="gray_elapsed_time">Unknown state </string> 
+    <string name="null_short_description">Short description not set in VAMU</string> 
+    <string name="shamu_widget_name">VAMU Notifier</string> 
+    <string name="text_view_widget_string">VAMU</string> 
     <string name="configuration_title">Configuration</string>
-    <string name="preferences_url">SHAMU\'s URL?</string>
+    <string name="preferences_url">VAMU\'s URL?</string>
     <string name="configuration_url_default"></string>
     <string name="configuration_polling_interval">Polling interval:</string>
     <string name="configuration_test_button">Fetch alerts!</string>
@@ -34,15 +34,15 @@
     <string name="configuration_invalid_url_dialogue_title">Malformed URL!</string>
     <string name="configuration_no_active_network_dialogue">"Your device has no network connectivity at the moment!"</string>
     <string name="configuration_no_active_network_title">"No connectivity"</string>
-    <string name="configuration_shamu_unreachable_message">"SHAMU was not reachable with your URL!  Is SHAMU up?"</string>
-    <string name="configuration_shamu_unreachable_title">SHAMU unreachable!</string>
+    <string name="configuration_shamu_unreachable_message">"VAMU was not reachable with your URL!  Is VAMU up?"</string>
+    <string name="configuration_shamu_unreachable_title">VAMU unreachable!</string>
     <string name="configuration_invalid_url_dialogue_ok">OK</string>
     <string name="configuration_testing_button_in_test">Fetching...</string>
     <string name="configuration_success_test_message">Select the alerts of interest and select the back button when finished!</string>
     <string name="configuration_success_test_title">Success!!</string>
-    <string name="welcome_title">Welcome!</string>
-    <string name="welcome_message">Welcome to the Android System Health Alert Monitoring (SHAMU) notification app!\nThis app will help you keep up with current health of the VA\'s CHDR system.\nTo get started enter the URL for the SHAMU system and your desired polling interval in minutes.</string>
-    <string name="main_activity_failed_refresh_message">Refresh failed!  Is SHAMU up?</string>
+    <string name="welcome_title">Welcome!</string> 
+    <string name="welcome_message">Welcome to the Android System Health Alert Monitoring (VAMU) notification app!\nThis app will help you keep up with current health of the VA\'s VLER system.\nTo get started enter the URL for the VAMU system and your desired polling interval in minutes.</string>
+    <string name="main_activity_failed_refresh_message">Refresh failed!  Is VAMU up?</string>
     <string name="main_activity_failed_refresh_title">Refresh Failed!</string>
     <string name="preferences_deselect_all_button_text">None</string>
     <string name="preferences_select_all_button_text">All</string>
@@ -56,6 +56,7 @@
         <item>Reports</item>
         <item>Configure</item>
         <item>Settings</item>
+        <item>Charts</item>
     </string-array>
 
     <string name="drawer_open">Open navigation drawer</string>
@@ -68,6 +69,7 @@
     <string name="title_reports">Reports</string>
     <string name="title_configure">Configure</string>
     <string name="title_alerts">Alerts</string>
+    <string name="title_real_time">Chart</string>
     <string name="widget_cbx_silent_polling">Silent Polling</string>
     <string name="drawer_currently_refreshing_message">The current refresh must complete first!</string>
     <string name="drawer_currently_refreshing_title">Refreshing!</string>
@@ -75,5 +77,7 @@
     <string name="reports_empty_listview_message">No reports are available for viewing.  Try doing a pull to refresh.</string>
     <string name="alerts_empty_list_title">No Alerts!</string>
     <string name="alerts_empty_list_message">No alerts are available for viewing.  Try selecting some alerts of interest in the configure pane.</string>
+    <string name="das_real_time_chart_title">DAS Real Time Chart</string>
+
 
 </resources>

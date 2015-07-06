@@ -37,6 +37,8 @@ public class ShamuMainActivity extends BaseActivity {
     static final int POSITION_REPORT=2;
     static final int POSITION_CONFIGURATION=3;
     static final int POSITION_SETTINGS=4;
+    static final int POSITION_REAL_TIME_CHARTS=5;
+    static final int POSITION_LAST=5;//always make equal to the last value above.
     static final String DRAWER_IMAGE_PREAMBLE = "drawer_";
     static final String LAST_DRAWER_SELECTION="DRAWER_SELECTION";
     static final String SENT_VIA_DRAWER = "SENT_VIA_DRAWER";
@@ -149,7 +151,7 @@ public class ShamuMainActivity extends BaseActivity {
             } else {
                 L.v(TAG,"Main list item is null!");
             }
-            for (int i = POSITION_ALERT - 1; i <= POSITION_SETTINGS - 1; i++ ) {
+            for (int i = POSITION_ALERT - 1; i <= POSITION_LAST - 1; i++ ) {
                 if (i == currentSelection)
                     continue;
                 selectedView = lv.getChildAt(i);//our positions are 1 based
@@ -168,6 +170,7 @@ public class ShamuMainActivity extends BaseActivity {
             case POSITION_CONFIGURATION:
             case POSITION_REPORT:
             case POSITION_ALERT:
+            case POSITION_REAL_TIME_CHARTS:
                 if (position != lastFragmentSetPosition) {
                     drawerList.setItemChecked(position - 1, true);
                     externalDrawerChange = true;
@@ -252,7 +255,14 @@ public class ShamuMainActivity extends BaseActivity {
                 drawer.closeDrawer(Gravity.LEFT);
                 getFragmentManager().beginTransaction().replace(R.id.shamu_fragment_content_frame, new SettingsFragment()).commit();
                 lastFragmentSetPosition = POSITION_SETTINGS;
-                b.putInt(LAST_DRAWER_SELECTION,POSITION_SETTINGS);
+                b.putInt(LAST_DRAWER_SELECTION, POSITION_SETTINGS);
+                break;
+            case POSITION_REAL_TIME_CHARTS:
+                L.v(TAG,"Drawer is sending me to the Real TIme Charts fragment");
+                drawer.closeDrawer(Gravity.LEFT);
+                getFragmentManager().beginTransaction().replace(R.id.shamu_fragment_content_frame, new RealTimeChartFragment()).commit();//
+                lastFragmentSetPosition = POSITION_REAL_TIME_CHARTS;
+                b.putInt(LAST_DRAWER_SELECTION,POSITION_REAL_TIME_CHARTS);
                 break;
             default:
                 throw new IllegalArgumentException("Please keep " + TAG + " in sync with the drawer constants contained in Strings.xml!");

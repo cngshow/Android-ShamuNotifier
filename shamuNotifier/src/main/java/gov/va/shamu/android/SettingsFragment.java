@@ -138,7 +138,7 @@ public class SettingsFragment extends AbstractBaseFragment implements CompoundBu
             if(activity == null) {
                 L.wtf(TAG, "The SettingsChanger got a NULL activity!");
             } else {
-                L.w(TAG, "The SettingsChanger got a non null activity!");
+                L.d(TAG, "The SettingsChanger got a non null activity!");
             }
         }
         @Override

@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import gov.va.shamu.android.provider.ShamuData;
@@ -47,6 +49,13 @@ public class ShamuJobResultFragment extends Fragment {
         jobCode = extras.getCharSequence(Alerts.JOB_CODE_COLUMN_NAME);
         displayType = (ShamuNotifierContentProvider.UriType) extras.getSerializable(ShamuJobDisplayActivity.DISPLAY_TYPE);
 		jobResultsView = (WebView) v.findViewById(R.id.job_result_details);
+		WebSettings webSettings = jobResultsView.getSettings();
+		webSettings.setBuiltInZoomControls(true);
+		jobResultsView.requestFocusFromTouch();
+		Object  o = jobResultsView.getSettings();
+		//jobResultsView.getSettings().setJavaScriptEnabled(true);
+		jobResultsView.setWebChromeClient(new WebChromeClient());
+
 		(new AsyncLookup()).execute();
 		L.i(TAG, "onCreateView");
 		return v;

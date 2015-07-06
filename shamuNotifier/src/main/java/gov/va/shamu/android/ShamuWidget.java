@@ -20,7 +20,7 @@ import gov.va.shamu.android.provider.ShamuData;
 import gov.va.shamu.android.utilities.AbstractAlert;
 import gov.va.shamu.android.utilities.InterestingAlert;
 import gov.va.shamu.android.utilities.L;
-
+//TODO This widget bombs out if there are zero alerts provisioned. Need to make the widget display Green if there are no alerts and we have done a pull.
 public class ShamuWidget extends AppWidgetProvider {
 	private final String TAG = this.getClass().getSimpleName();
     private RemoteViews views;

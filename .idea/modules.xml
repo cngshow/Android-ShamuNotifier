@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ShamuNotifier.iml" filepath="$PROJECT_DIR$/ShamuNotifier.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Android-ShamuNotifier.iml" filepath="$PROJECT_DIR$/Android-ShamuNotifier.iml" />
       <module fileurl="file://$PROJECT_DIR$/libraryPullToRefreshListView/libraryPullToRefreshListView.iml" filepath="$PROJECT_DIR$/libraryPullToRefreshListView/libraryPullToRefreshListView.iml" />
-      <module fileurl="file://$PROJECT_DIR$/sampleproject/sampleproject.iml" filepath="$PROJECT_DIR$/sampleproject/sampleproject.iml" />
       <module fileurl="file://$PROJECT_DIR$/shamuNotifier/shamuNotifier.iml" filepath="$PROJECT_DIR$/shamuNotifier/shamuNotifier.iml" />
     </modules>
   </component>
 </project>
-
