@@ -245,7 +245,7 @@ public class RealTimeChartFragment extends AbstractBaseFragment {
                 } catch (IOException e) {
                     L.w(TAG, "Could not reach endpoint to get real time data! ", e);
                 }
-            }
+            }//comment
             return null;
         }
 
