@@ -24,6 +24,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import gov.va.shamu.android.speechtotext.SpeechCommandFragment;
 import gov.va.shamu.android.utilities.L;
 
 public class ShamuMainActivity extends BaseActivity {
@@ -421,4 +422,13 @@ public class ShamuMainActivity extends BaseActivity {
         return Character.toLowerCase(line.charAt(0)) + line.substring(1);
     }
 
+    @Override
+    protected boolean listeningSupported() {
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        L.d(TAG,"onBackPressed");
+    }
 }

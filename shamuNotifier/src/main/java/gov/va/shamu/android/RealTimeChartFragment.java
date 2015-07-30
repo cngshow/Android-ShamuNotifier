@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.androidplot.Plot;
 import com.androidplot.ui.SizeLayoutType;
@@ -55,6 +56,7 @@ public class RealTimeChartFragment extends AbstractBaseFragment {
     public static final String TAG = "RealTimeChartFragment";
     // TODO: Rename parameter arguments, choose names that match
     private XYPlot xyPlot;
+    private AsyncRealTimeDataFetcher dataFetcher;
 
 
     private OnFragmentInteractionListener mListener;
@@ -124,9 +126,9 @@ public class RealTimeChartFragment extends AbstractBaseFragment {
 //        TextLabelWidget tw = xyPlot.getTitleWidget();
 //        SizeMetrics sm = new SizeMetrics(100, SizeLayoutType.FILL, 100,SizeLayoutType.FILL);
 //        tw.setSize(sm);
-        AsyncRealTimeDataFetcher.keepRefreshing = true;
-        (new AsyncRealTimeDataFetcher(activity, 0, xyPlot)).execute();
-
+        dataFetcher = new AsyncRealTimeDataFetcher(activity, 0, xyPlot);
+        dataFetcher.keepRefreshing = true;
+        dataFetcher.execute();
         return v;
     }
 
@@ -145,20 +147,20 @@ public class RealTimeChartFragment extends AbstractBaseFragment {
     @Override
     public void onPause() {
         super.onPause();
-        AsyncRealTimeDataFetcher.keepRefreshing = false;
+        dataFetcher.keepRefreshing = false;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        AsyncRealTimeDataFetcher.keepRefreshing = true;
+        dataFetcher.keepRefreshing = true;
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
-        AsyncRealTimeDataFetcher.keepRefreshing = false;
+        dataFetcher.keepRefreshing = false;
     }
 
 
@@ -198,9 +200,9 @@ public class RealTimeChartFragment extends AbstractBaseFragment {
         }
     }
 
-    static class AsyncRealTimeDataFetcher extends AsyncTask<Void, Void, JSONObject> {
+     class AsyncRealTimeDataFetcher extends AsyncTask<Void, Void, JSONObject> {
 
-        static volatile boolean keepRefreshing = true;
+        volatile boolean keepRefreshing = true;
         Activity activity;
         long sleepTime;
         XYPlot plot;
@@ -208,11 +210,11 @@ public class RealTimeChartFragment extends AbstractBaseFragment {
         Number[] domainValues;
         String chartTitle, xTitle, yTitle, elementDescription, timeSpan;
         int refreshInterval;
-
-        static private LineAndPointFormatter formatter = new LineAndPointFormatter(Color.rgb(0, 0, 0), Color.BLUE, Color.TRANSPARENT, null);
+         private LineAndPointFormatter formatter = new LineAndPointFormatter(Color.rgb(0, 0, 0), Color.BLUE, Color.TRANSPARENT, null);
 
 
         AsyncRealTimeDataFetcher(Activity a, long sleepTime, XYPlot plot) {
+            L.d(TAG,"New Data Fetcher!!");
             activity = a;
             this.sleepTime = sleepTime;
             this.plot = plot;
@@ -228,7 +230,7 @@ public class RealTimeChartFragment extends AbstractBaseFragment {
                 L.w(TAG, "Refresh wait period is failing!", e);
             }
             if (keepRefreshing) {
-                L.d(TAG, "Getting all preferences");
+                L.d(TAG, "Getting all real time data");
                 try {
                     //sample JSON document looks like:
                     //[{"_id":1435687343674.0,"Total_Count":16.0,"start_time_epoch":1435687333674.0,"end_time_epoch":1435687343674.0}
@@ -264,6 +266,14 @@ public class RealTimeChartFragment extends AbstractBaseFragment {
                     refreshInterval = json.getInt("refresh_interval");
                     elementDescription = json.getJSONArray("element_description").getString(0);//currently only supporting one line being drawn
                     int length = realTimeData.length();
+                    if (length == 0) {
+                        //There is no real time data yet.  Toast the user and quit
+                        String text = activity.getString(R.string.no_realtime_data_to_plot);
+                        int duration = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(activity, text, duration);
+                        toast.show();
+                        return;
+                    }
                     rangeValues = new Number[length];
                     domainValues = new Number[length];
                     for (int i = 0; i < length; i++) {
@@ -286,7 +296,12 @@ public class RealTimeChartFragment extends AbstractBaseFragment {
             }
 
             if (keepRefreshing) {
-                (new AsyncRealTimeDataFetcher(activity, refreshInterval * 1000, plot)).execute();
+                L.d(TAG,"Refreshing again!");
+                RealTimeChartFragment.this.dataFetcher = new AsyncRealTimeDataFetcher(activity, refreshInterval * 1000, plot);
+                RealTimeChartFragment.this.dataFetcher.execute();
+            } else {
+                L.d(TAG,"Not refreshing again!");
+
             }
         }
 

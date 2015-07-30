@@ -13,6 +13,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
+import gov.va.shamu.android.provider.CommonDataColumns;
 import gov.va.shamu.android.provider.ShamuData;
 import gov.va.shamu.android.provider.ShamuData.Alerts;
 import gov.va.shamu.android.provider.ShamuNotifierContentProvider;
@@ -46,7 +47,7 @@ public class ShamuJobResultFragment extends Fragment {
 			Bundle saved) {
 		View v = inflater.inflate(R.layout.job_display_details, container, false);
         final Bundle extras = getActivity().getIntent().getExtras();
-        jobCode = extras.getCharSequence(Alerts.JOB_CODE_COLUMN_NAME);
+        jobCode = extras.getCharSequence(CommonDataColumns.JOB_CODE_COLUMN_NAME);
         displayType = (ShamuNotifierContentProvider.UriType) extras.getSerializable(ShamuJobDisplayActivity.DISPLAY_TYPE);
 		jobResultsView = (WebView) v.findViewById(R.id.job_result_details);
 		WebSettings webSettings = jobResultsView.getSettings();

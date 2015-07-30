@@ -4,13 +4,18 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.speech.SpeechRecognizer;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import gov.va.shamu.android.speechtotext.SpeechCommandFragment;
 import gov.va.shamu.android.utilities.L;
 
 /**
@@ -109,6 +114,9 @@ public class BaseActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.shamu_menu, menu);
+        MenuItem listenButton = menu.findItem(R.id.action_listen);
+        listenButton.setEnabled(listeningSupported());
+        listenButton.setVisible(listeningSupported());
 		return true;
 	}
 	
@@ -148,7 +156,7 @@ public class BaseActivity extends Activity {
 
     @Override
     protected void onResume() {
-        L.d(TAG,"onResume");
+        L.d(TAG, "onResume");
         super.onResume();
         if(dialogging)
             buildAlertDialog(currentDialogMessage, currentDialogTitle);
@@ -178,6 +186,19 @@ public class BaseActivity extends Activity {
 			}
             optionFound = true;
 			break;
+            case R.id.action_listen:
+                L.d(TAG, "I need to listen!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                if (SpeechRecognizer.isRecognitionAvailable(this)) {
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.shamu_fragment_content_frame, new SpeechCommandFragment()).commit();
+                   // getFragmentManager().popBackStack();
+                } else {
+                    String text = getString(R.string.speech_to_text_not_supported);
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(this, text, duration);
+                    toast.show();
+                }
+            break;
 		}
 		return optionFound;
 	}
@@ -209,4 +230,10 @@ public class BaseActivity extends Activity {
         String t = getString(R.string.app_name) + "-" + title;
         actionBar.setTitle(t);
     }
+
+    //ovverride
+    protected boolean listeningSupported() {
+        return false;
+    }
+
 }

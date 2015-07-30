@@ -61,7 +61,6 @@
 
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="settings_vibrate_checkbox">Vibrate on Alert</string>
     <string name="settings_audible_checkbox">Audible Notifications on Alert</string>
     <string name="settings_announce_checkbox">Announce Alert via Voice</string>
@@ -78,6 +77,23 @@
     <string name="alerts_empty_list_title">No Alerts!</string>
     <string name="alerts_empty_list_message">No alerts are available for viewing.  Try selecting some alerts of interest in the configure pane.</string>
     <string name="das_real_time_chart_title">DAS Real Time Chart</string>
-
-
+    <string name="action_command_title">Listening</string>
+    <string name="speech_to_text_not_supported">This device does not support speech to text.</string>
+    <string name="listening_title">Listening</string>
+    <string name="speech_listening_text">"Listening   "</string>
+    <string name="speech_to_text_error">Sorry I didn\'t catch that.</string>
+    <string name="speech_to_text_can_not_find">Sorry I couldn\'t find that!</string>
+    <string name="no_realtime_data_to_plot">There is no real time data to chart!</string>
+    <string-array name="speech_to_text_report_preamble_array">
+        <item>show me report</item>
+        <item>show me the report</item>
+        <item>open report</item>
+        <item>open the report</item>
+    </string-array>
+    <string-array name="speech_to_text_alert_preamble_array">
+        <item>show me alert</item>
+        <item>show me the alert</item>
+        <item>open alert</item>
+        <item>open the alert</item>
+    </string-array>
 </resources>

@@ -5,6 +5,10 @@
         <!--android:orderInCategory="100"-->
         <!--android:showAsAction="never"-->
         <!--android:title="@string/menu_preferences_item"/>-->
+    <item android:id="@+id/action_listen"
+        android:icon="@drawable/speak"
+        android:title="@string/action_command_title"
+        android:showAsAction="always" />
     <item android:id="@+id/toggle_service" android:title="@string/service_inactive_string"></item>
 
 </menu>

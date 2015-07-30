@@ -16,8 +16,6 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import eu.erikw.PullToRefreshListView;
 import gov.va.shamu.android.provider.CommonDataColumns;
